@@ -19,4 +19,3 @@
 - The UI is as consistent as I can make it in a project like this, but normally next steps would be to create a design spec with text, colours, spacing, shadows etc
 - I've written it all in Typescript which I prefer to use but the addition of a backend would really help to make TS shine because then I'd type the interface between backend and client and use a package like Zod to ensure the data has the right structure when it comes to the client.
 - I've added some animations to the HTML elements but next I'd look at animating the Canvas elements. I think React Spring is the probably the way to do that with pixiJS React but this is the first time I've used pixiJS so I'd need to research this a bit to be sure.
-- I've not made a mobile version of the UI because I feel like it would need a different design spec to the desktop version, but if you'd like to see that I can redesign it myself and impliment something that might work on mobile.
