@@ -3,27 +3,31 @@ import { createImage, changePosition, minMax } from "../helpers";
 import { createId } from "@paralleldrive/cuid2";
 
 test.concurrent("createImageFromUndefined", () => {
-  const image = createImage(undefined);
+  const image = createImage(undefined, 0, 0);
   expect(image).toHaveProperty("id");
   expect(image).toHaveProperty("url");
   expect(image).toHaveProperty("position");
 });
 
 test.concurrent("createImageFromEmptyArray", () => {
-  const image = createImage([]);
+  const image = createImage([], 320, 600);
   expect(image).toHaveProperty("id");
   expect(image).toHaveProperty("url");
   expect(image).toHaveProperty("position");
 });
 
 test.concurrent("createImageFromArray", () => {
-  const image = createImage([
-    {
-      id: createId(),
-      url: "/taipei101.png",
-      position: [0, 0],
-    },
-  ]);
+  const image = createImage(
+    [
+      {
+        id: createId(),
+        url: "/taipei101.png",
+        position: [0, 0],
+      },
+    ],
+    800,
+    600
+  );
   expect(image).toHaveProperty("id");
   expect(image).toHaveProperty("url");
   expect(image).toHaveProperty("position");
