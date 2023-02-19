@@ -19,8 +19,17 @@ function randomImageUrl(images: Image[] | undefined) {
   return unusedUrls[Math.floor(Math.random() * unusedUrls.length)];
 }
 
+function minMax(min: number, max: number, value: number): number {
+  if (value < min) return min;
+  if (value > max) return max;
+  return value;
+}
+
 function randomPosition(): [number, number] {
-  return [Math.floor(Math.random() * 260), Math.floor(Math.random() * 140)];
+  return [
+    minMax(0, 600, Math.floor(Math.random() * 600)),
+    minMax(0, 250, Math.floor(Math.random() * 250)),
+  ];
 }
 
 export function createImage(images: Image[] | undefined): Image {
