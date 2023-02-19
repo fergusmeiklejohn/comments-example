@@ -10,6 +10,8 @@ export default function HeaderBar({ addImage }: { addImage: () => void }) {
   const [_activeCommentMarker, setActiveCommentMarker] = useGlobalState(
     "activeCommentMarker"
   );
+  const [_scale, setScale] = useGlobalState("scale");
+  const [_position, setPosition] = useGlobalState("position");
 
   return (
     <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
@@ -27,6 +29,8 @@ export default function HeaderBar({ addImage }: { addImage: () => void }) {
               setComments([]);
               setCommentDialogOpen(false);
               setActiveCommentMarker(undefined);
+              setScale(1);
+              setPosition([0, 0]);
             }}
           >
             Reset All

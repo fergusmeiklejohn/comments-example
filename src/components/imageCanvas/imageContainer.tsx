@@ -25,10 +25,11 @@ export default function ImageContainer({
   commentMarkers: CommentMarker[];
   setCommentMarkers: React.Dispatch<React.SetStateAction<CommentMarker[]>>;
 }) {
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useGlobalState("scale");
   const [images] = useGlobalState("images");
-  const [position, setPosition] = useState<[number, number]>([0, 0]);
-  const [commentDialogOpen, setCommentDialogOpen] = useState(false);
+  const [position, setPosition] = useGlobalState("position");
+  const [commentDialogOpen, setCommentDialogOpen] =
+    useGlobalState("commentDialogOpen");
   const [activeCommentMarker, setActiveCommentMarker] = useGlobalState(
     "activeCommentMarker"
   );

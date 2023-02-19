@@ -23,6 +23,8 @@ export const { useGlobalState } = createGlobalState<{
   comments: CommentType[];
   images: Image[] | undefined;
   authUser: AuthUser | undefined;
+  scale: number;
+  position: [number, number];
 }>({
   commentDialogOpen: false,
   activeCommentMarker: undefined,
@@ -30,6 +32,8 @@ export const { useGlobalState } = createGlobalState<{
   comments: [],
   images: [],
   authUser: users[0],
+  scale: 1,
+  position: [0, 0],
 });
 
 function App() {
