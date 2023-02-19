@@ -49,7 +49,7 @@ export default function ImageContainer({
                 const newCommentMarker: CommentMarker = {
                   id: createId(),
                   imageID: image.id,
-                  position: [e.x - 40, e.y - 110] as Position,
+                  position: [e.screen.x, e.screen.y] as Position,
                   color: "green",
                 };
                 setCommentMarkers((c) => [...c, newCommentMarker]);
