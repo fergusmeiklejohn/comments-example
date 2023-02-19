@@ -41,7 +41,7 @@ export default function CommentDialog({ commentMarker }: CommentDialogProps) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.5 }}
       transition={{ type: "spring", stiffness: 500, damping: 30 }}
-      className="absolute bottom-5 right-5 h-auto w-[30rem] rounded-md bg-white px-4 py-5 shadow-xl sm:px-6"
+      className="absolute bottom-0 right-0 h-auto w-screen rounded-md bg-white px-4 py-5 shadow-xl sm:px-6 md:bottom-5 md:right-5 md:w-[30rem]"
     >
       <div className="flex flex-col space-y-2">
         <div className="flex items-center justify-between space-x-3 border-b border-gray-200 py-2">

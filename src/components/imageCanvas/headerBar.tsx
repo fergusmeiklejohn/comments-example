@@ -1,7 +1,11 @@
 import { useGlobalState } from "../../App";
 import SwitchUser from "../switchUser";
 
-export default function HeaderBar({ addImage }: { addImage: () => void }) {
+type HeaderBarProps = {
+  addImage: () => void;
+};
+
+export default function HeaderBar({ addImage }: HeaderBarProps) {
   const [_images, setImages] = useGlobalState("images");
   const [_commentMarkers, setCommentMarkers] = useGlobalState("commentMarkers");
   const [_comments, setComments] = useGlobalState("comments");
@@ -19,10 +23,10 @@ export default function HeaderBar({ addImage }: { addImage: () => void }) {
         <div className="ml-4 mt-2">
           <SwitchUser />
         </div>
-        <div className="flex space-x-2">
+        <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
           <button
             type="button"
-            className="relative inline-flex items-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            className="relative inline-flex items-center justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
             onClick={() => {
               setImages([]);
               setCommentMarkers([]);

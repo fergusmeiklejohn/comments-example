@@ -19,24 +19,35 @@ function randomImageUrl(images: Image[] | undefined) {
   return unusedUrls[Math.floor(Math.random() * unusedUrls.length)];
 }
 
-function minMax(min: number, max: number, value: number): number {
+export function minMax(min: number, max: number, value: number): number {
   if (value < min) return min;
   if (value > max) return max;
   return value;
 }
 
-function randomPosition(): [number, number] {
+function randomPosition(
+  canvasWidth: number,
+  canvasHeight: number
+): [number, number] {
+  console.log(canvasWidth, canvasHeight);
+  const maxInsertWidth = canvasWidth - canvasWidth / 4 - 100;
+  const maxInsertHeight = canvasHeight - canvasHeight / 2 - 50;
   return [
-    minMax(0, 600, Math.floor(Math.random() * 600)),
-    minMax(0, 250, Math.floor(Math.random() * 250)),
+    minMax(0, maxInsertWidth, Math.floor(Math.random() * maxInsertWidth)),
+    minMax(0, maxInsertHeight, Math.floor(Math.random() * maxInsertHeight)),
   ];
 }
+randomPosition(800, 600); //?
 
-export function createImage(images: Image[] | undefined): Image {
+export function createImage(
+  images: Image[] | undefined,
+  canvasWidth: number,
+  canvasHeight: number
+): Image {
   return {
     id: createId(),
     url: randomImageUrl(images),
-    position: randomPosition(),
+    position: randomPosition(canvasWidth, canvasHeight),
   };
 }
 

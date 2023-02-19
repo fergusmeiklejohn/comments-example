@@ -18,13 +18,18 @@ import { changePosition } from "../../helpers";
 import { CommentMarker, Position } from "../../types";
 import { AnimatePresence } from "framer-motion";
 
+type ImageContainerProps = {
+  commentMarkers: CommentMarker[];
+  setCommentMarkers: React.Dispatch<React.SetStateAction<CommentMarker[]>>;
+  screenWidth: number;
+  screenHeight: number;
+};
 export default function ImageContainer({
   commentMarkers,
   setCommentMarkers,
-}: {
-  commentMarkers: CommentMarker[];
-  setCommentMarkers: React.Dispatch<React.SetStateAction<CommentMarker[]>>;
-}) {
+  screenWidth,
+  screenHeight,
+}: ImageContainerProps) {
   const [scale, setScale] = useGlobalState("scale");
   const [images] = useGlobalState("images");
   const [position, setPosition] = useGlobalState("position");
@@ -36,7 +41,11 @@ export default function ImageContainer({
 
   return (
     <div className="relative">
-      <Stage width={800} height={600} options={{ backgroundColor: 0xeef1f5 }}>
+      <Stage
+        width={screenWidth}
+        height={screenHeight}
+        options={{ backgroundColor: 0xeef1f5 }}
+      >
         {/* This is Texture sprite is a hack to fix a click bug in pixiJS React: https://github.com/pixijs/pixi-react/issues/416 when the bug is fixed we can remove this <Sprite texture.. /> */}
         <Sprite texture={Texture.WHITE} width={1} height={1} />
         <Container scale={scale} position={position}>

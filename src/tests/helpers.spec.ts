@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import { createImage, changePosition } from "../helpers";
+import { createImage, changePosition, minMax } from "../helpers";
 import { createId } from "@paralleldrive/cuid2";
 
 test.concurrent("createImageFromUndefined", () => {
@@ -50,4 +50,10 @@ test("unknownDirection", () => {
   expect(() => changePosition([0, 0], "unknown" as any)).toThrowError(
     "Unknown direction"
   );
+});
+
+test("minMax", () => {
+  expect(minMax(0, 10, 20)).toBe(10);
+  expect(minMax(0, 10, -20)).toBe(0);
+  expect(minMax(0, 10, 5)).toBe(5);
 });
