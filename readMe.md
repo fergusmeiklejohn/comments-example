@@ -1,8 +1,8 @@
 # Phase *Comments* code example
 
 
-`yarn dev` to start dev server
-`yarn tests` to run unit tests
+- `yarn dev` to start dev server
+- `yarn tests` to run unit tests
 
 ## Notes:
 - Project uses
