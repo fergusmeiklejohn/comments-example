@@ -14,6 +14,7 @@ type CommentDialogProps = {
 };
 
 export default function CommentDialog({ commentMarker }: CommentDialogProps) {
+  console.log("commentMarker", commentMarker);
   const [_commentMarkers, setCommentMarkers] = useGlobalState("commentMarkers");
   const [comments, setComments] = useGlobalState("comments");
   const [_commentDialogOpen, setCommentDialogOpen] =
@@ -58,9 +59,11 @@ export default function CommentDialog({ commentMarker }: CommentDialogProps) {
           </div>
         </div>
 
-        {comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
+        {comments
+          .filter((comment) => comment.commentMarkerID === commentMarker.id)
+          .map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))}
 
         <WriteComment
           commentMarkerID={commentMarker.id}
