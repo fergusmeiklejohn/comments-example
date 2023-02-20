@@ -29,7 +29,6 @@ function randomPosition(
   canvasWidth: number,
   canvasHeight: number
 ): [number, number] {
-  console.log(canvasWidth, canvasHeight);
   const maxInsertWidth = canvasWidth - canvasWidth / 4 - 100;
   const maxInsertHeight = canvasHeight - canvasHeight / 2 - 50;
   return [

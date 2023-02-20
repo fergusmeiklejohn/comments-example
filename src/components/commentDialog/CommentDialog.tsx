@@ -14,7 +14,6 @@ type CommentDialogProps = {
 };
 
 export default function CommentDialog({ commentMarker }: CommentDialogProps) {
-  console.log("commentMarker", commentMarker);
   const [_commentMarkers, setCommentMarkers] = useGlobalState("commentMarkers");
   const [comments, setComments] = useGlobalState("comments");
   const [_commentDialogOpen, setCommentDialogOpen] =
